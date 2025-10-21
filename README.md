@@ -53,8 +53,8 @@ A machine learning-based drug classification system with Flask API backend and A
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/yourusername/drug-classification-project.git
-   cd drug-classification-project
+   git clone https://github.com/AhmetBugraKaplan/DrugClassificationMobileApp.git
+   cd DrugClassificationMobileApp
    ```
 
 2. **Backend Setup**
@@ -182,7 +182,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 👥 Authors
 
-- **Your Name** - *Initial work* - [YourGitHub](https://github.com/yourusername)
+- **Ahmet Bugra Kaplan** - *Initial work* - [AhmetBugraKaplan](https://github.com/AhmetBugraKaplan)
 
 ## 🙏 Acknowledgments
 
