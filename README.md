@@ -188,15 +188,15 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 🙏 Acknowledgments
 
-- Dataset source
-- Libraries and frameworks used
-- Contributors and testers
+- Dataset source: Drug Classification Dataset
+- Libraries and frameworks used: Flask, scikit-learn, Android, Jetpack Compose
+- Contributors and testers: Open source community
 
 ## 📞 Support
 
 If you have any questions or need help, please:
 - Open an issue on GitHub
-- Contact the maintainers
+- Contact: Ahmet Bugra Kaplan
 - Check the documentation
 
 ## 🔮 Future Enhancements
