@@ -39,7 +39,9 @@ A machine learning-based drug classification system with Flask API backend and A
 
 ## 📱 Screenshots
 
-*Screenshots will be added here*
+![Drug Classification App](ScreenShot.png)
+
+*Android application interface showing the drug prediction form with input fields for patient characteristics.*
 
 ## 🚀 Getting Started
 
