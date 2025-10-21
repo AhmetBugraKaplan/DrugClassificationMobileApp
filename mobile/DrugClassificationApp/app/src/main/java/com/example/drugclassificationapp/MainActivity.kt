@@ -158,7 +158,7 @@ fun DrugPredictionScreen(
         }
         
         // Error message
-        uiState.error?.let { error ->
+        uiState.errorMessage?.let { error ->
             Card(
                 modifier = Modifier
                     .fillMaxWidth()
@@ -174,7 +174,7 @@ fun DrugPredictionScreen(
         }
         
         // Prediction result
-        if (uiState.prediction.isNotEmpty()) {
+        uiState.prediction?.let { prediction ->
             Card(
                 modifier = Modifier.fillMaxWidth(),
                 colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.primaryContainer)
@@ -190,14 +190,14 @@ fun DrugPredictionScreen(
                     )
                     Spacer(modifier = Modifier.height(8.dp))
                     Text(
-                        text = uiState.prediction,
+                        text = prediction,
                         style = MaterialTheme.typography.headlineSmall,
                         fontWeight = FontWeight.Bold,
                         color = MaterialTheme.colorScheme.primary
                     )
                     
                     // Drug image based on prediction
-                    when (uiState.prediction.lowercase()) {
+                    when (prediction.lowercase()) {
                         "drugy" -> {
                             Spacer(modifier = Modifier.height(16.dp))
                             Text(
