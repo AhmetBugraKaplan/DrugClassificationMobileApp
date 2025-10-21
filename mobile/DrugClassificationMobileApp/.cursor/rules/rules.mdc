@@ -1,0 +1,108 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+You are an expert in Kotlin, Android development, and Jetpack Compose. You use Clean Architecture with Hilt for dependency injection, Room for local persistence, and Navigation Compose for screen transitions. You prioritize maintainable architecture, readable code, and idiomatic Compose practices.
+
+## Jetpack Compose + Android Clean Architecture Guidelines
+
+### General Principles
+- Use Kotlin and Jetpack Compose for all UI elements. Avoid XML.
+- Structure the project using Clean Architecture: Domain, Data, and Presentation layers.
+- Follow the MVVM pattern with unidirectional data flow in the presentation layer.
+- Use Hilt for dependency injection across all layers.
+- Use Room for persistence; define entities, DAOs, and the database in the Data layer.
+- Use Navigation Compose for screen navigation.
+- Write maintainable, scalable, and readable code.
+- Follow Kotlin idioms and best practices consistently.
+
+---
+
+### UI Code (Compose)
+- Write small, testable, and focused `@Composable` functions.
+- Use `@Composable` only when necessary—favor recomposition-safe patterns.
+- Apply `Modifier` chains in this order: **layout → behavior → drawing**.
+- Prefer Material 3 components.
+- Use state hoisting: pass state and events via parameters.
+- Use `State` / `MutableState` for local state; `remember` / `rememberSaveable` for retention.
+- Use `LaunchedEffect`, `SideEffect`, and `DisposableEffect` appropriately for side effects.
+- Use accessibility best practices: `contentDescription`, `semantics {}`, etc.
+- Prefer sealed classes or enums for UI events and screen destinations.
+
+---
+
+### Navigation (Compose)
+- Use `NavHost`, `NavController`, and typed route parameters.
+- Define navigation destinations using sealed classes or constants.
+- Avoid hardcoded string routes in multiple places; centralize route definitions.
+- Use `composable(route)` blocks to define navigation destinations.
+- Prefer nested navigation graphs for feature-based modularization.
+- Pass arguments safely and consistently.
+- Handle navigation side effects in the ViewModel via one-time UI events.
+
+---
+
+### ViewModel & State Management
+- Inject ViewModels using Hilt.
+- Keep UI state in immutable data classes.
+- Use `StateFlow` or `LiveData` to expose state to the UI layer.
+- Use sealed classes for UI events and side effects (e.g., navigation, showing a Toast).
+- Keep the ViewModel lean—delegate business logic to use cases in the domain layer.
+- Avoid exposing mutable state directly.
+
+---
+
+### Data Layer
+- Define Room entities, DAOs, and database configuration.
+- Repositories should expose domain models, not Room entities.
+- Use DTOs to map data between layers (Data ↔ Domain).
+- Handle errors explicitly—wrap results in `Result`, `sealed class`, or `Either`.
+
+---
+
+### Domain Layer
+- Pure Kotlin layer: no Android or framework dependencies.
+- Define interfaces for repositories and implement them in the Data layer.
+- Place business logic and use cases here.
+- Keep it highly testable and framework-agnostic.
+
+---
+
+### Dependency Injection (Hilt)
+- Annotate Application class with `@HiltAndroidApp`.
+- Use constructor injection (`@Inject`) in ViewModels, use cases, and repositories.
+- Define Hilt modules for providing Room, Network, and other dependencies.
+- Use appropriate scopes: `@Singleton`, `@ViewModelScoped`, etc.
+- Annotate modules with `@InstallIn(SingletonComponent::class)` or relevant scope.
+
+---
+
+### Naming Conventions
+- **PascalCase** for classes and `@Composable` functions.
+- **camelCase** for functions, variables, parameters.
+- Prefix booleans with `is`, `has`, `should` (e.g., `isLoading`, `hasItems`).
+- Avoid abbreviations unless well-known (e.g., API, UI).
+- Use **lowercase_with_underscores** for file and directory names (e.g., `home_screen.kt`).
+
+---
+
+### Logging & Debugging
+- Use **Timber** for logging—avoid `println()` or `Log`.
+- Never log sensitive information.
+- Enable debug tools like Layout Inspector and Compose Preview during development.
+
+---
+
+### UI Previews
+- Use `@Preview` with meaningful names.
+- Configure device and theme when necessary.
+- Avoid logic in preview functions—keep them visual only.
+
+---
+
+### Final Notes
+- Keep your code idiomatic and clean.
+- Review and refactor regularly.
+- Prefer clarity over cleverness.
+- Stay consistent.
